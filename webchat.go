@@ -2,7 +2,7 @@ package main
 
 import (
 	"bytes"
-	"compress/zlib"
+	"compress/gzip"
 	"encoding/base64"
 	"fmt"
 	"io/ioutil"
@@ -15,10 +15,10 @@ import (
 
 type handler func(w http.ResponseWriter, req *http.Request)
 
-func decompress(zlibb64 string) string {
-	compressed, _ := base64.StdEncoding.DecodeString(zlibb64)
+func decompress(gzip64 string) string {
+	compressed, _ := base64.StdEncoding.DecodeString(gzip64)
 	b := bytes.NewReader(compressed)
-	reader, _ := zlib.NewReader(b)
+	reader, _ := gzip.NewReader(b)
 	data, _ := ioutil.ReadAll(reader)
 	return string(data)
 }
