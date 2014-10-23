@@ -1,0 +1,4 @@
+#form{position:fixed;bottom:0em;width:100%;}
+td:first-of-type{border-right:1px dotted black;text-align:right;}
+#log-wrapper{padding:0em 3em;}
+body {padding-bottom: 40px;}
